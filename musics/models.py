@@ -1,7 +1,6 @@
 from django.db import models
 import sqlite3
 
-
 class Artist(models.Model):
     name = models.CharField(max_length=30)
     date_joined = models.DateTimeField()
@@ -11,9 +10,9 @@ class Artist(models.Model):
         cursor = conexao.cursor()
         cursor.execute("select * from musics_song where artist_id = "+str(self.id)+";")
 
-        musicas = {}
+        musics = {}
         for music in cursor.fetchall():
-            musicas[music[1]] = {
+            musics[music[1]] = {
                 "id": music[0],
                 "title": music[1],
                 "duration": music[2],
@@ -22,7 +21,7 @@ class Artist(models.Model):
 
         conexao.close()
 
-        return musicas
+        return musics
 
     def __str__(self):
         return self.name

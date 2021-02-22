@@ -23,6 +23,7 @@ def musics(request, id):
 
 
 def new_song(request):
+    #com esses parâmetros posso usar o mesmo form para requisições GET e POST
     form = SongForm(request.POST or None)
 
     if request.method == "POST":

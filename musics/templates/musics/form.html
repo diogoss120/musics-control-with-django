@@ -15,7 +15,9 @@
     {{ form.as_p }}
 
     <button type="submit">Salvar</button> <br>
-    <a href=" {% url 'url_delete_song' song.id %} ">Apagar</a>
+    {% if song.id is not null %}
+      <a href=" {% url 'url_delete_song' song.id %} ">Apagar</a>
+    {% endif %}
   </form>
 
   <a href=" {% url 'url_home' %} ">Voltar para home</a><br>
