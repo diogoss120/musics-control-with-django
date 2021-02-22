@@ -1,0 +1,41 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Músicas</title>
+    <link rel="stylesheet" href=" {% static 'css/style.css' %} ">
+</head>
+
+<body>
+
+    <header>
+        <span> Controle de musicas de artistas</span>
+        <span> {% block title %} {% endblock title %}  </span>
+    </header>
+
+    <main class="container">
+    
+        {% block conteudo %}
+
+        {% endblock conteudo %}
+
+    </main>
+
+    <footer>
+        <span>Projeto prático para um teste de estágio</span>
+        <span>Todos os direitos reservados</span>
+    </footer>
+
+    {% block script %}
+
+    {% endblock script %}
+
+</body>
+
+</html>

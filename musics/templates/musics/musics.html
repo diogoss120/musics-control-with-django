@@ -1,30 +1,40 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+{% extends "musics/base.html" %}
+{% load static %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ artist.title }}</title>
-</head>
+{% block conteudo %}
+<div>
+    
+    <table>
+        <tbody>
 
-<body>
+            <tr>
+                <th>Music</th>
+                <th>Minutes</th>
+                <th>No Spotify</th>
+                <th>No YouTube</th>
+            </tr>
 
-    <ul>
+            {% for key, value in musics.items %}
 
-        {% for key, value in musics.items %}
+            <tr class="musics" data-id="{{ value.id}}">
+                <td> {{ value.title}}</td>
+                <td class="minutes">{{ value.duration}}</td>
+                <td>{{ value.spotify}}</td>
+                <td>{{ value.youtube }}</td>
+            </tr>
 
-        <a href=" {% url 'url_update_song' value.id %} ">
+            {% endfor %}
 
-            <li> {{ value.id}}, {{ value.title}}, {{ value.duration}}, {{ value.spotify}}, {{ value.youtube }} </li>
+        </tbody>
+    </table>
 
-        </a>
-        {% endfor %}
-
-    </ul>
 
     <a href=" {% url 'url_home' %} ">Voltar para home</a>
+</div>
+{% endblock conteudo %}
 
-</body>
+{% block title %} Musics {% endblock title %}
 
-</html>
+{% block script %}
+<script src=" {% static 'javascript/musics.js' %}"></script>
+{% endblock script %}

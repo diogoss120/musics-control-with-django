@@ -1,23 +1,28 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+{% extends "musics/base.html" %}
+{% load static %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Músicas</title>
-</head>
-
-<body>
-    <ul>
+{% block conteudo %}
+<table>
+    <caption>Artistas cadastrados no Admin</caption>
+    
+    <tbody>
+        <tr>
+            <th>Artista</th>
+            <th>Em trou na Oni</th>
+        </tr>
         {% for artist in artists %}
-        <a href="{% url 'url_musics' artist.id %}">
-            <li>{{ artist.name }} - {{ artist.date_joined }}</li>
-        </a>
+        <tr class="tr-artist" data-id="{{ artist.id }}">
+            <td>{{ artist.name }}</td>
+            <td>{{ artist.date_joined }}</td>
+        </tr>
         {% endfor %}
-    </ul>
+    </tbody>
 
-    <a href=" {% url 'url_new_song' %} " >Nova musica</a>
-</body>
+</table>
+{% endblock conteudo %}
 
-</html>
+{% block title %} Home {% endblock title %}
+
+{% block script %}
+<script src=" {% static 'javascript/home.js' %}"></script>
+{% endblock script %}

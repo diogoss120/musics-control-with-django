@@ -1,0 +1,81 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100%;
+    font-size: 20px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+header, footer {
+    background: green;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    color: white;
+    font-weight: 500;
+}
+
+footer  {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}
+
+.container {
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+table {
+    width: auto;
+    min-width: 340px;
+}
+
+table, th, td, tr {
+    width: auto;
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 8px;
+    text-align: center;
+}
+.tr-artist:hover, .musics:hover {
+    background-color: rgb(211, 208, 208);
+    cursor: pointer;
+}
+
+form {
+    min-width: 360px;
+    border: 1px solid;
+    border-color: rgb(126, 126, 247);
+    padding: 15px;
+}
+
+form p {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 30px 0;
+}
+
+form p select, form p input[type='text'] {
+    padding: 5px;
+    outline: none;
+    border-color: rgb(126, 126, 247);
+    font-family: Arial, Helvetica, sans-serif;
+    min-width: 75%;
+}
+
+form button[type='submit']{
+    margin: 0 auto;
+}

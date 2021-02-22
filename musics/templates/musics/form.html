@@ -1,36 +1,24 @@
-<html>
+{% extends "musics/base.html" %}
+{% load static %}
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title></title>
-  <meta name="viewport" content="width=device-width">
-</head>
+{% block conteudo %}
+<form method="POST">
+  {% csrf_token %}
 
-<body>
+  {{ form.as_p }}
 
-  <form method="POST">
-    {% csrf_token %}
-
-    {{ form.as_p }}
-
-    <button type="submit">Salvar</button> <br>
-    {% if song.id is not null %}
-      <a href=" {% url 'url_delete_song' song.id %} ">Apagar</a>
-    {% endif %}
-  </form>
+  <button type="submit">Salvar</button> <br>
+  {% if song.id is not null %}
+  <a href=" {% url 'url_delete_song' song.id %} ">Apagar</a> <br>
 
   <a href=" {% url 'url_home' %} ">Voltar para home</a><br>
+  {% endif %}
+</form>
 
-  <script>
-    /*
-    var btnDelMusic = document.getElementById('btnDelMusic');
-    btnDelMusic.addEventListener('click', e => {
-      e.preventDefault();
-      console.log(btnDelMusic.dataset.id);
-    });
-    */
-  </script>
-</body>
+{% endblock conteudo %}
 
-</html>
+{% block title %} Music {% endblock title %}
+
+{% block script %}
+<script src=" {% static 'javascript/form.js' %}"></script>
+{% endblock script %}
