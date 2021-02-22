@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Músicas</title>
+</head>
+
+<body>
+    <ul>
+        {% for artist in artists %}
+        <a href="{% url 'url_musics' artist.id %}">
+            <li>{{ artist.name }} - {{ artist.date_joined }}</li>
+        </a>
+        {% endfor %}
+    </ul>
+
+    <a href=" {% url 'url_new_song' %} " >Nova musica</a>
+</body>
+
+</html>

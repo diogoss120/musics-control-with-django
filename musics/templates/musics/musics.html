@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ artist.title }}</title>
+</head>
+
+<body>
+
+    <ul>
+
+        {% for key, value in musics.items %}
+
+        <a href=" {% url 'url_update_song' value.id %} ">
+
+            <li> {{ value.id}}, {{ value.title}}, {{ value.duration}}, {{ value.spotify}}, {{ value.youtube }} </li>
+
+        </a>
+        {% endfor %}
+
+    </ul>
+
+    <a href=" {% url 'url_home' %} ">Voltar para home</a>
+
+</body>
+
+</html>
