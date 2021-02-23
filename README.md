@@ -10,8 +10,8 @@
 - python -m venv venv
 
 ###### 4 - Ative o ambiente virtual: 
-- No windows navegue  até a pasta Script 'cd venv\Script' e digite "activate"
-- Se estiver no linux: source venv/Script/activate
+- No windows navegue  até a pasta Script 'cd venv\Scripts' digite "activate" e tecle enter
+- Se estiver no linux: source venv/Scripts/activate
 
 ###### 5 - Instale o django no ambiente virtual: 
 - pip install django
