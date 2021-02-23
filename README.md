@@ -1,4 +1,4 @@
-### control-musics-with-django
+## Control musics with django
 
 ##### 1 - Para rodar esse projeto é necessário ter o python instalado 
 
@@ -13,8 +13,9 @@
 - No windows navegue  até a pasta Script 'cd venv\Script' e digite "activate"
 - Se estiver no linux: source venv/Script/activate
 
-###### instale o django no ambiente virtual: 
+###### 5 - Instale o django no ambiente virtual: 
 - pip install django
 
-###### para rodar o servidor: 
+###### 6 - Inicie o servidor: 
 - python manage.py runserver
+- Acesse a url http://127.0.0.1:8000/ no seu navegador
