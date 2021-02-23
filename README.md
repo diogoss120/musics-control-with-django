@@ -1,22 +1,20 @@
 ### control-musics-with-django
 
-- criar ambiente virtual: python -m venv venv
-- ativar o ambiente virtual: navegue  até a pasta Script e digite "activate"
-- instalar o django no ambiente virtual: pip install django
+##### 1 - Para rodar esse projeto é necessário ter o python instalado 
 
-- criar um projeto django: django-admin startproject music_control .
-- crar uma app: python manage.py startapp musics
-- depois é necessário geristrar a app no projeto: seu_projeto/settings.py 
-  INSTALLED_APPS - adicione a app no array
+##### 2 - Também é necessário criar um ambiente virtual para instalar o django
+-  Navegue pelo terminal até a pasta que onde foi feito o clone desse repositório
+-  Ex: 'cd D:\project_django2'
 
-- crie pela primeira vez o banco de dados: python manage.py migrate
+###### 3 - Crie o ambiente virtual: 
+- python -m venv venv
 
-- para rodar o servidor: python manage.py runserver
-- para criar um super usuario: python manage.py createsuperuser
+###### 4 - Ative o ambiente virtual: 
+- No windows navegue  até a pasta Script 'cd venv\Script' e digite "activate"
+- Se estiver no linux: source venv/Script/activate
 
-- observa tudo que é novo na pasta models e cria um arquivo migrations
-  executar: python manage.py makemigrations
-  dentro da pasta migrations que descreve como o django deve criar as tabelas no banco de dados
+###### instale o django no ambiente virtual: 
+- pip install django
 
-- apos esses passos execute: python manage.py migrate
-  para realmente aplicar o conteudo da pasta migrations e criar a tabela dentro do banco
+###### para rodar o servidor: 
+- python manage.py runserver
