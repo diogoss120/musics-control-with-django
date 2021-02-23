@@ -1,4 +1,4 @@
-## Control musics with django
+## Musics control with django
 
 ##### 1 - Para rodar esse projeto é necessário ter o python instalado 
 
