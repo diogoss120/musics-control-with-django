@@ -1,6 +1,7 @@
 ## Musics control with django
 
 ##### 1 - Para rodar esse projeto é necessário ter o python instalado 
+- Caso não tenha ele instalado, faça o download no site oficial e instale: https://www.python.org/downloads/
 
 ##### 2 - Também é necessário criar um ambiente virtual para instalar o django
 -  Navegue pelo terminal até a pasta que onde foi feito o clone desse repositório
