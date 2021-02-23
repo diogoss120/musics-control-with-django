@@ -1,22 +1,29 @@
-### control-musics-with-django
+## Musics control with django
 
-- criar ambiente virtual: python -m venv venv
-- ativar o ambiente virtual: navegue  até a pasta Script e digite "activate"
-- instalar o django no ambiente virtual: pip install django
+### Para logar no admin 'http://127.0.0.1:8000/admin/', use o usuário 'django' com a senha 'django'
 
-- criar um projeto django: django-admin startproject music_control .
-- crar uma app: python manage.py startapp musics
-- depois é necessário geristrar a app no projeto: seu_projeto/settings.py 
-  INSTALLED_APPS - adicione a app no array
+###### 1 - Para rodar esse projeto é necessário ter o python instalado 
+- Caso não tenha ele instalado, faça o download no site oficial e instale: https://www.python.org/downloads/
 
-- crie pela primeira vez o banco de dados: python manage.py migrate
+###### 2 - Faça o clone desse repositório em sua máquina
+- git clone https://github.com/diogoss120/musics-control-with-django.git
+- git pull origin master
 
-- para rodar o servidor: python manage.py runserver
-- para criar um super usuario: python manage.py createsuperuser
+###### 3 - Também é necessário criar um ambiente virtual para instalar o django
+-  Pelo terminal, navegue até a pasta onde foi feito o clone desse repositório
+-  Ex: 'cd D:\project_django2'
 
-- observa tudo que é novo na pasta models e cria um arquivo migrations
-  executar: python manage.py makemigrations
-  dentro da pasta migrations que descreve como o django deve criar as tabelas no banco de dados
+###### 4 - Crie o ambiente virtual: 
+- Quando estiver dentro do diretório do projeto execute no terminal:
+- python -m venv venv
 
-- apos esses passos execute: python manage.py migrate
-  para realmente aplicar o conteudo da pasta migrations e criar a tabela dentro do banco
+###### 5 - Ative o ambiente virtual: 
+- No windows navegue  até a pasta Script 'cd venv\Scripts' digite "activate" e tecle enter
+- Se estiver no linux: source venv/Scripts/activate
+
+###### 6 - Instale o django no ambiente virtual: 
+- pip install django
+
+###### 7 - Inicie o servidor: 
+- python manage.py runserver
+- Acesse a url http://127.0.0.1:8000/ no seu navegador
