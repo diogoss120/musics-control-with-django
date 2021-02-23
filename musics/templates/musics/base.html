@@ -15,8 +15,11 @@
 <body>
 
     <header>
-        <p>Controle de musicas de artistas</p>
-        <p> {% block title %} {% endblock title %}  </p>
+        <ul class="cabecalho">
+            <li><a href=" {% url 'url_home' %} ">Home</a></li>
+            <li><a href=" {% url 'url_new_song' %} ">Nova música</a></li>
+        </ul>
+        <span class="title"> {% block title %} {% endblock title %}  </span class="">
     </header>
 
     <main class="container">

@@ -9,7 +9,7 @@
 
             <tr>
                 <th>Music</th>
-                <th>Minuts</th>
+                <th>Minutes</th>
                 <th>No Spotify</th>
                 <th>No YouTube</th>
             </tr>
@@ -19,18 +19,14 @@
             <tr class="musics" data-id="{{ value.id}}">
                 <td> {{ value.title}}</td>
                 <td class="minutes">{{ value.duration}}</td>
-                <td>{{ value.spotify}}</td>
-                <td>{{ value.youtube }}</td>
+                <td class="publicado">{{ value.spotify}}</td>
+                <td class="publicado" > {{ value.youtube }}</td>
             </tr>
 
             {% endfor %}
 
         </tbody>
     </table>
-
-    <div class="links">
-        <a href=" {% url 'url_home' %} ">Voltar para a home</a>
-    </div>
     
 </div>
 {% endblock conteudo %}
