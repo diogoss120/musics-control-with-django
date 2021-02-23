@@ -78,7 +78,7 @@ form p, .buttons, .links{
     flex-direction: row;
     align-items: center;
     flex-wrap: wrap;
-    margin: 30px 0;
+    margin: 20px 0;
 }
 
 form p select, form p input[type='text'], form p input[type="number"] {
@@ -89,6 +89,10 @@ form p select, form p input[type='text'], form p input[type="number"] {
     font-family: Arial, Helvetica, sans-serif;
     width: 100%;
     font-size: 17px;
+}
+
+form p.checkbox, form p.checkbox > *{
+    cursor: pointer;
 }
 
 .btnSubmit, .btnDelete {

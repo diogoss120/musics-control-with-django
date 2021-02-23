@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block conteudo %}
-<form method="POST">
+<form data-idMusic="{{ song.id }}" method="POST">
   {% csrf_token %}
 
   {{ form.as_p }}
@@ -11,7 +11,7 @@
 
     <button class="btnSubmit" type="submit">Salvar</button>
     {% if song.id is not null %}
-    <button class="btnDelete">Apagar</button>
+    <button class="btnDelete" type="button">Apagar</button>
     {% endif %}
 
   </div>

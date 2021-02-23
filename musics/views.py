@@ -38,9 +38,10 @@ def update_song(request, id):
     song = Song.objects.get(pk=id)
     form = SongForm(request.POST or None, instance=song)
 
-    if form.is_valid():
-        form.save()
-        return redirect('url_home')
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('url_home')
 
     return render(request, 'musics/form.html', {'form': form, 'song': song})
 
