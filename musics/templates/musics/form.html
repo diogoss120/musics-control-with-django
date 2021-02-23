@@ -7,14 +7,25 @@
 
   {{ form.as_p }}
 
-  <button type="submit">Salvar</button> <br>
-  {% if song.id is not null %}
-  <a href=" {% url 'url_delete_song' song.id %} ">Apagar</a> <br>
+  <div class='buttons'>
 
-  <a href=" {% url 'url_home' %} ">Voltar para home</a><br>
-  {% endif %}
+    <button class="btnSubmit" type="submit">Salvar</button>
+    {% if song.id is not null %}
+    <button class="btnDelete">Apagar</button>
+    {% endif %}
+
+  </div>
+
+  <div class='links'>
+
+    <a href=" {% url 'url_home' %} ">Voltar para a Home</a>
+    {% if song.id is not null %}
+    <a href=" {% url 'url_delete_song' song.id %} ">Apagar</a>
+    {% endif %}
+    <!-- #Comentários html ainda são interpretados pelo django, estão cuidado!
+         #Insira o comentário do python também -->
+  </div>
 </form>
-
 {% endblock conteudo %}
 
 {% block title %} Music {% endblock title %}

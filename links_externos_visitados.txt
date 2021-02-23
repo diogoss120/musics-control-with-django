@@ -1,0 +1,21 @@
+
+lista de links que visitei na internet 
+
+- ajudou na formatação de data e hora
+https://www.alura.com.br/artigos/lidando-com-datas-e-horarios-no-python  
+
+- ajudou a encontrar os fields corretos
+https://docs.djangoproject.com/en/2.0/topics/db/models/  
+
+-ajudou a lidar com o dictionary da class Artist
+https://www.alura.com.br/artigos/trabalhando-com-o-dicionario-no-python 
+
+- ajudou a entender como percorrer um dicionario no template django
+https://qastack.com.br/programming/8000022/django-template-how-to-look-up-a-dictionary-value-with-a-variable 
+https://stackoverflow.com/questions/1275735/how-to-access-a-dictionary-element-in-a-django-template
+
+- ajudou a entender sobre o django forms
+https://www.horadecodar.com.br/2019/01/31/django-forms-inserindo-dados/ 
+
+- curso gratuito da udemy que assiti para aprender os conceitos básicos do django
+https://www.udemy.com/course/django-20-aprendendo-os-conceitos-fundamentais
