@@ -40,3 +40,5 @@ class Music {
         return el;
     }
 }
+
+let music = new Music();

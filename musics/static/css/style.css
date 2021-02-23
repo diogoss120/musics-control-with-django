@@ -137,7 +137,8 @@ a {
 .title {
     min-width: 250px;
     text-align: right;
-    font-weight: 400;
+    font-weight: 300;
+    font-size: 20px;
 }
 
 .cabecalho li{

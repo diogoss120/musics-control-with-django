@@ -15,16 +15,7 @@
     {% endif %}
 
   </div>
-
-  <div class='links'>
-
-    {% if song.id is not null %}
-    <a href=" {% url 'url_delete_song' song.id %} ">Apagar</a>
-    {% endif %}
-    <!-- {# Comentários html ainda são interpretados pelo django, estão cuidado! #}
-         {# Insira o comentário do python também #}-->
-         
-  </div>
+  
 </form>
 {% endblock conteudo %}
 

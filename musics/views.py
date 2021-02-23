@@ -41,7 +41,7 @@ def update_song(request, id):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return redirect('url_home')
+            return redirect('url_new_song')
 
     return render(request, 'musics/form.html', {'form': form, 'song': song})
 

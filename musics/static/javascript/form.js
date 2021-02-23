@@ -2,6 +2,7 @@ class Form {
     constructor() {
         this.btnDelete = document.querySelector('.btnDelete');
         this.btnSubmit = document.querySelector('.btnSubmit');
+        this.form = document.querySelector('form');
         this.validacaoForm();
         this.eventosCheckbox();
     }
@@ -11,13 +12,17 @@ class Form {
         if (this.btnDelete) {
 
             this.btnDelete.addEventListener('click', e => {
-                let id = document.querySelector('form').dataset.idmusic;
+                let id = this.form.dataset.idmusic;
                 window.location.href = `http://127.0.0.1:8000/delete/${id}`;
                 alert('Música apagada com sucesso!');
             });
 
             this.btnSubmit.addEventListener('click', e => {
-                alert('Música alterada com sucesso!');
+              
+                if(this.formValido()){
+                    alert('Música alterada com sucesso!');
+                }
+                
             });
 
         } else {
@@ -25,6 +30,18 @@ class Form {
                 alert('Música adicionada com sucesso!');
             });
         }
+    }
+
+    formValido() {
+        let formValido = true;
+        this.form.querySelectorAll('input[type="text"], input[type="number"], select').forEach(el => {
+
+            if (el.value == '') {
+                formValido = false;
+            }
+
+        });
+        return formValido;
     }
 
     eventosCheckbox() {
