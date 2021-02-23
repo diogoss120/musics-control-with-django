@@ -1,5 +1,7 @@
 ## Musics control with django
 
+### Para logar no admin 'http://127.0.0.1:8000/admin/', use o usuário 'django' com a senha 'django'
+
 ###### 1 - Para rodar esse projeto é necessário ter o python instalado 
 - Caso não tenha ele instalado, faça o download no site oficial e instale: https://www.python.org/downloads/
 
