@@ -1,7 +1,10 @@
 
 lista de links que visitei na internet 
 
-- conteudo que li sonbre admin actions
+- sobre a biblioteca openpyxl
+https://openpyxl.readthedocs.io/en/stable/usage.html
+
+- conteudo que li sobre admin actions
 https://docs.djangoproject.com/en/2.0/ref/contrib/admin/actions/
 
 - ajudou na formatação de data e hora
@@ -28,6 +31,3 @@ https://www.treinaweb.com.br/blog/herdando-templates-com-django/
 
 - usando arquivos estáticos (css e js)
 https://www.treinaweb.com.br/blog/utilizando-arquivos-estaticos-em-um-projeto-django/#:~:text=Agora%20que%20j%C3%A1%20configuramos%20a,a%20tag%20(linha%207).
-
-- sobre a biblioteca openpyxl
-https://openpyxl.readthedocs.io/en/stable/usage.html

@@ -1,7 +1,13 @@
 {% extends "musics/base.html" %}
 {% load static %}
 
+
 {% block conteudo %}
+
+<div>
+  {{ message }}
+</div>
+
 <form data-idMusic="{{ song.id }}" method="POST">
   {% csrf_token %}
 
@@ -15,7 +21,7 @@
     {% endif %}
 
   </div>
-  
+
 </form>
 {% endblock conteudo %}
 

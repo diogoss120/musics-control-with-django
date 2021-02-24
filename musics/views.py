@@ -31,7 +31,7 @@ def new_song(request):
             form.save()
             return redirect('url_home')
 
-    return render(request, 'musics/form.html', {'form': form})
+    return render(request, 'musics/form.html', {'form': form, 'message':'New Music'})
 
 
 def update_song(request, id):
@@ -43,7 +43,7 @@ def update_song(request, id):
             form.save()
             return redirect('url_new_song')
 
-    return render(request, 'musics/form.html', {'form': form, 'song': song})
+    return render(request, 'musics/form.html', {'form': form, 'song': song, 'message':'Edit Music'})
 
 def delete_song(request, id):
     song = Song.objects.get(pk=id)
