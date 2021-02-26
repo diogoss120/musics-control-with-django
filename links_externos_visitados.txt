@@ -1,6 +1,9 @@
 
 lista de links que visitei na internet 
 
+- precisei buscar na internet sobre como exportar arquivos com django
+https://www.youtube.com/watch?v=nREig3KW6mU&list=WL&index=13&ab_channel=ProfessionalCipher
+
 - sobre a biblioteca openpyxl
 https://openpyxl.readthedocs.io/en/stable/usage.html
 

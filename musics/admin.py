@@ -8,56 +8,81 @@ from django.http import HttpResponse
 
 class ArtistAdmin(admin.ModelAdmin):
     def export_musics_from_artist(self, request, queryset):
-        conn = sqlite3.connect('./db.sqlite3')
-        cursor = conn.cursor()
 
-        print('hello')
+        data = queryset
 
-        musics = cursor.execute(
-            "select s.title, s.duration, s.spotify_published, s.youtube_published from musics_song s join musics_artist a on a.id = s.artist_id where a.id = 2;"
-        ).fetchall()
-        qtd_musicas = len(musics)
-        print('quantidade de músicas: ', str(qtd_musicas))
+        #PROBLEMA PARA RESOLVER AMANHÃ: alocar uma tabela ao lado da outra sem sobrescrever
+        #ou criar um arquivo para cada artista(talves seja melhor)
+        
+        for artist in queryset:
+            #pegando o artista e as músicas dele pelo método que já estava pronto no model
+            artist = Artist.objects.get(pk=artist.id)
+            musics = artist.get_songs()
+        
+            #abre um arquivo padrão
+            caminho = './musics/excel/music.xlsx'
+            wb = load_workbook(caminho)
+            sheet = wb.active
 
-        #name_artist = cursor.execute()
+            sheet.title = artist.name
 
-        caminho = './musics/excel/music.xlsx'
-        wb = load_workbook(caminho)
-        sheet = wb.active
+            """
+            sheet['B4'] = "TITLE"
+            sheet['C4'] = "DURATION"
+            sheet['D4'] = "NO SPOTIFY"
+            sheet['E4'] = "NO YOUTUBE"
+            """
 
-        sheet['B4'] = "TITLE"
-        sheet['C4'] = "DURATION"
-        sheet['D4'] = "NO SPOTIFY"
-        sheet['E4'] = "NO YOUTUBE"
+            row = 5
 
-        colls = ['B', 'C', 'D', 'E']
-        coll = 0
-        row = 5
+            for music in musics:
+                song = musics[music]
+                print(song['title'])
 
-        for music in musics:
-            print('qtd info da musica -', len(music))
+                sheet['B'+str(row)] = song['title']
 
-            for caracteristica in music:
-                if caracteristica == 1:
-                    caracteristica = "Sim"
-                elif caracteristica == 0:
-                    caracteristica = "Não"
-                print(caracteristica, end=' - ')
-                sheet[str(colls[coll] + str(row))] = caracteristica
-                coll += 1
+                sheet['C'+str(row)] = song['duration']
 
-            coll = 0
-            row += 1
+                sheet['D'+str(row)] = "Sim" if song['spotify'] == 1 else "Não"
 
-        wb.save(caminho)
+                sheet['E'+str(row)] = "Sim" if song['youtube'] == 1 else "Não"
 
-        conn.close()
+                row += 1
 
-        response = HttpResponse(sheet)
-        response['Content-Type'] = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-        response['Content-Disposition'] = 'attachment; filename=artist_music.xls'
+            response = HttpResponse(content_type='application/vnd.ms-excel')
+            response['Content-Disposition'] = 'attachment; filename=artist_music.xlsx'
+            
+            #os dados que estão na planilha são gravados no response e retornados
+            wb.save(response)
+            return response
+            
 
-        return response
+            """
+            for music in musics:
+
+                for caracteristica in music:
+                    if caracteristica == 1:
+                        caracteristica = "Sim"
+                    elif caracteristica == 0:
+                        caracteristica = "Não"
+                    sheet[str(colls[coll] + str(row))] = caracteristica
+                    coll += 1
+
+                coll = 0
+                row += 1
+
+            #não quero que meu arquivo base seja editado e gravado no disco, 
+            #quero retornar o arquivo que estiver na memoria ram
+            #wb.save(caminho)
+
+            #definindo as propriedades do arquivo
+            response = HttpResponse(content_type='application/vnd.ms-excel')
+            response['Content-Disposition'] = 'attachment; filename=artist_music.xlsx'
+            
+            #os dados que estão na planilha são gravados no response e retornados
+            wb.save(response)
+            return response
+            """
 
     actions = [export_musics_from_artist]
 
