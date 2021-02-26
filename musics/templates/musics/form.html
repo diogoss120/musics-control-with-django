@@ -4,25 +4,27 @@
 
 {% block conteudo %}
 
-<div>
-  {{ message }}
+<div class="form">
+  <form data-idMusic="{{ song.id }}" method="POST">
+
+    <fieldset>
+      <legend> {{ message }}</legend>
+
+      {% csrf_token %}
+
+      {{ form.as_p }}
+
+      <div class='buttons'>
+
+        <button class="btnSubmit" type="submit">Salvar</button>
+        {% if song.id is not null %}
+        <button class="btnDelete" type="button">Apagar</button>
+        {% endif %}
+
+      </div>
+    </fieldset>
+  </form>
 </div>
-
-<form data-idMusic="{{ song.id }}" method="POST">
-  {% csrf_token %}
-
-  {{ form.as_p }}
-
-  <div class='buttons'>
-
-    <button class="btnSubmit" type="submit">Salvar</button>
-    {% if song.id is not null %}
-    <button class="btnDelete" type="button">Apagar</button>
-    {% endif %}
-
-  </div>
-
-</form>
 {% endblock conteudo %}
 
 {% block title %} Music {% endblock title %}

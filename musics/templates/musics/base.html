@@ -1,4 +1,3 @@
-
 {% load static %}
 
 <!DOCTYPE html>
@@ -19,23 +18,17 @@
             <li><a href=" {% url 'url_home' %} ">Home</a></li>
             <li><a href=" {% url 'url_new_song' %} ">Nova música</a></li>
         </ul>
-        <span class="title"> {% block title %} {% endblock title %}  </span class="">
+        <span class="title"> <!-- {% block title %} {% endblock title %} --> </span class="">
     </header>
+
 
     <main class="container">
 
-        
-    
         {% block conteudo %}
 
         {% endblock conteudo %}
 
     </main>
-
-    <footer>
-        <p>Projeto prático para um teste de estágio</p>
-        <p>Todos os direitos reservados</p>
-    </footer>
 
     {% block script %}
 
