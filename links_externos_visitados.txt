@@ -6,6 +6,7 @@ https://www.youtube.com/watch?v=nREig3KW6mU&list=WL&index=13&ab_channel=Professi
 
 - sobre a biblioteca openpyxl
 https://openpyxl.readthedocs.io/en/stable/usage.html
+https://zetcode.com/python/openpyxl/
 
 - conteudo que li sobre admin actions
 https://docs.djangoproject.com/en/2.0/ref/contrib/admin/actions/

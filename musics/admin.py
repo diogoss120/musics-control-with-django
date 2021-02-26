@@ -7,83 +7,48 @@ from django.http import HttpResponse
 
 
 class ArtistAdmin(admin.ModelAdmin):
+
     def export_musics_from_artist(self, request, queryset):
 
-        data = queryset
+        response = HttpResponse(content_type='application/vnd.ms-excel')
+        response['Content-Disposition'] = 'attachment; filename=artist_music.xlsx'
 
-        #PROBLEMA PARA RESOLVER AMANHÃ: alocar uma tabela ao lado da outra sem sobrescrever
-        #ou criar um arquivo para cada artista(talves seja melhor)
+        wb = Workbook()
+        sheet = wb.active
         
         for artist in queryset:
             #pegando o artista e as músicas dele pelo método que já estava pronto no model
             artist = Artist.objects.get(pk=artist.id)
             musics = artist.get_songs()
-        
-            #abre um arquivo padrão
-            caminho = './musics/excel/music.xlsx'
-            wb = load_workbook(caminho)
-            sheet = wb.active
 
+            #renomeando a planilha do momento
             sheet.title = artist.name
+          
+            #setando os cabeçalhos
+            sheet['B2'] = "TITLE"
+            sheet['C2'] = "DURATION"
+            sheet['D2'] = "NO SPOTIFY"
+            sheet['E2'] = "NO YOUTUBE"
 
-            """
-            sheet['B4'] = "TITLE"
-            sheet['C4'] = "DURATION"
-            sheet['D4'] = "NO SPOTIFY"
-            sheet['E4'] = "NO YOUTUBE"
-            """
-
-            row = 5
-
+            row = 3
             for music in musics:
                 song = musics[music]
-                print(song['title'])
 
                 sheet['B'+str(row)] = song['title']
-
                 sheet['C'+str(row)] = song['duration']
-
                 sheet['D'+str(row)] = "Sim" if song['spotify'] == 1 else "Não"
-
                 sheet['E'+str(row)] = "Sim" if song['youtube'] == 1 else "Não"
 
                 row += 1
 
-            response = HttpResponse(content_type='application/vnd.ms-excel')
-            response['Content-Disposition'] = 'attachment; filename=artist_music.xlsx'
-            
-            #os dados que estão na planilha são gravados no response e retornados
-            wb.save(response)
-            return response
-            
-
-            """
-            for music in musics:
-
-                for caracteristica in music:
-                    if caracteristica == 1:
-                        caracteristica = "Sim"
-                    elif caracteristica == 0:
-                        caracteristica = "Não"
-                    sheet[str(colls[coll] + str(row))] = caracteristica
-                    coll += 1
-
-                coll = 0
-                row += 1
-
-            #não quero que meu arquivo base seja editado e gravado no disco, 
-            #quero retornar o arquivo que estiver na memoria ram
-            #wb.save(caminho)
-
-            #definindo as propriedades do arquivo
-            response = HttpResponse(content_type='application/vnd.ms-excel')
-            response['Content-Disposition'] = 'attachment; filename=artist_music.xlsx'
-            
-            #os dados que estão na planilha são gravados no response e retornados
-            wb.save(response)
-            return response
-            """
-
+            #sobrescrevendo a planilha
+            sheet = wb.create_sheet()
+        
+        #os dados que estão na planilha são gravados no response e retornados
+        wb.save(response)
+        
+        return response
+        
     actions = [export_musics_from_artist]
 
 
