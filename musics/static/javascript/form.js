@@ -18,11 +18,12 @@ class Form {
             });
 
             this.btnSubmit.addEventListener('click', e => {
-              
-                if(this.formValido()){
+
+                if (this.formValido()) {
                     alert('Música alterada com sucesso!');
+                } else {
+                    e.preventDefault()
                 }
-                
             });
 
         } else {
@@ -40,6 +41,10 @@ class Form {
                 formValido = false;
             }
 
+            if (el.type == 'number' && parseInt(el.value) < 60) {
+                formValido = false;
+                alert('Não existe uma música com esse tempo de duração')
+            }
         });
         return formValido;
     }

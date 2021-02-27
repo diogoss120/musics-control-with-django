@@ -25,19 +25,27 @@ class Music {
         document.querySelectorAll('.minutes').forEach(el => {
 
             let seconds = el.innerHTML;
-            let minutes = parseInt(seconds / 60);
-            let timeLeft = seconds % 60;
-            el.innerHTML = this.formatTime(minutes) + ':' + this.formatTime(timeLeft);
+            el.innerHTML = this.formatTime(seconds);
 
         });
     }
 
-    formatTime(el) {
+    formatTime(time, with_seg = true){
+    
+        var hours = Math.floor( time / 3600 );
+        var minutes = Math.floor( (time % 3600) / 60 );
+        var seconds = time % 60;
+          
+        minutes = minutes < 10 ? '0' + minutes : minutes;      
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+        hours = hours < 10 ? '0' + hours : hours;
 
-        if (el.toString().length == 1) {
-            el = '0' + el.toString();
+        if( parseInt(hours) > 0){
+            return  hours + ":" + minutes + ":" + seconds;
         }
-        return el;
+          
+        return  minutes + ":" + seconds;
+             
     }
 }
 

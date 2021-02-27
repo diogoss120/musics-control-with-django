@@ -47,8 +47,7 @@ header {
 }
 
 table {
-    min-width: 300px;
-    min-height: 200px;
+    min-width: 200px;
 }
 
 table caption {
@@ -158,4 +157,23 @@ a {
 
 .cabecalho li{
     list-style-type: none;
+}
+
+@media  (max-width: 400px){
+    table {
+        min-width: 150px;
+    }
+    
+    table caption {
+        margin: 10px 0;
+        font-weight: 700;
+    }
+    
+    table, th, td, tr {
+        width: auto;
+        border: 2px solid rgb(0, 0, 0);
+        border-collapse: collapse;
+        padding: 8px 2px;
+        text-align: center;
+    }
 }

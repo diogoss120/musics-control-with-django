@@ -4,6 +4,7 @@ import sqlite3
 from openpyxl import load_workbook
 from openpyxl import Workbook
 from django.http import HttpResponse
+import datetime
 
 
 class ArtistAdmin(admin.ModelAdmin):
@@ -15,7 +16,9 @@ class ArtistAdmin(admin.ModelAdmin):
 
         wb = Workbook()
         sheet = wb.active
-        
+
+        qtd = len(queryset)
+        init = 1
         for artist in queryset:
             #pegando o artista e as músicas dele pelo método que já estava pronto no model
             artist = Artist.objects.get(pk=artist.id)
@@ -35,11 +38,15 @@ class ArtistAdmin(admin.ModelAdmin):
                 song = musics[music]
 
                 sheet['B'+str(row)] = song['title']
-                sheet['C'+str(row)] = song['duration']
+                sheet['C'+str(row)] = str(datetime.timedelta(seconds=song['duration']))
                 sheet['D'+str(row)] = "Sim" if song['spotify'] == 1 else "Não"
                 sheet['E'+str(row)] = "Sim" if song['youtube'] == 1 else "Não"
 
                 row += 1
+
+            if init == qtd:
+                break
+            init += 1
 
             #sobrescrevendo a planilha
             sheet = wb.create_sheet()
