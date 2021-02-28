@@ -2,31 +2,9 @@
 {% load static %}
 
 {% block conteudo %}
-<div class="geral">
-    <table>
 
-        <caption>Artistas cadastrados no Admin</caption>
-
-        <tbody>
-            <tr>
-                <th>Artista</th>
-                <th>Entrou na Oni em</th>
-            </tr>
-            {% for artist in artists %}
-            <tr class="tr-artist" data-id="{{ artist.id }}">
-                <td>{{ artist.name }}</td>
-                <td>{{ artist.date_joined }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-
-    </table>
-
+<div class="home">
+    Bem vindo!
 </div>
 
 {% endblock conteudo %}
-
-
-{% block script %}
-<script src=" {% static 'javascript/home.js' %}"></script>
-{% endblock script %}

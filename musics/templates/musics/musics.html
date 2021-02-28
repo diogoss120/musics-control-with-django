@@ -2,36 +2,33 @@
 {% load static %}
 
 {% block conteudo %}
-<div class="geral">
-    
-    <table>
-        <tbody>
 
-            <tr>
-                <th>Music</th>
-                <th>Minutes</th>
-                <th>No Spotify</th>
-                <th>No YouTube</th>
-            </tr>
+<table>
+    <tbody>
 
-            {% for key, value in musics.items %}
+        <tr>
+            <th>Music</th>
+            <th>Minutes</th>
+            <th>No Spotify</th>
+            <th>No YouTube</th>
+        </tr>
 
-            <tr class="musics" data-id="{{ value.id}}">
-                <td> {{ value.title}}</td>
-                <td class="minutes">{{ value.duration}}</td>
-                <td class="publicado">{{ value.spotify}}</td>
-                <td class="publicado" > {{ value.youtube }}</td>
-            </tr>
+        {% for key, value in musics.items %}
 
-            {% endfor %}
+        <tr class="musics" data-id="{{ value.id}}">
+            <td> {{ value.title}}</td>
+            <td class="minutes">{{ value.duration}}</td>
+            <td class="publicado">{{ value.spotify}}</td>
+            <td class="publicado"> {{ value.youtube }}</td>
+        </tr>
 
-        </tbody>
-    </table>
-    
-</div>
+        {% endfor %}
+
+    </tbody>
+</table>
+
 {% endblock conteudo %}
 
-{% block title %} Musics {% endblock title %}
 
 {% block script %}
 <script src=" {% static 'javascript/musics.js' %}"></script>

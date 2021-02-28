@@ -1,49 +1,62 @@
-html, body {
-    margin: 0;
-    padding: 0;
+html,
+body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
-    /*height: 100%;*/
+    height: 100%;
     background-color: rgb(53, 223, 75);
 }
 
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-header {
-    background: rgb(39, 39, 39);
+body {
     display: flex;
-    justify-content: space-around;
     flex-direction: row;
-    align-items: center;
-    flex-wrap: wrap;
-    font-weight: 600;
+}
+
+.barra {
+    overflow: auto;
+    background: rgb(39, 39, 39);
+    width: 250px;
+    height: 100%;
+}
+
+.barra div {
+    padding: 15px 0 0 20px;
+}
+
+.barra div span {
+    text-align: center;
     color: white;
-}
-
-header {
-    padding: 8px;
-}
-
-
-.geral{
-    height: 80%;
+    font-weight: 700;
 }
 
 .container {
-    height: 82%;
+    overflow: auto;
+    width: 85%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-}
-.geral{
-    padding: 10% 0;
 }
 
-.form {
-    padding: 3% 0;
+li {
+    list-style: none;
+    /* superior | direita | inferior | esquerda */
+    padding: 10px 0 10px 20px;
+    cursor: pointer;
+    color: white;
+}
+
+li:hover {
+    background: #000;
+}
+
+ul {
+    padding: 10% 0;
 }
 
 table {
@@ -55,7 +68,10 @@ table caption {
     font-weight: 700;
 }
 
-table, th, td, tr {
+table,
+th,
+td,
+tr {
     width: auto;
     border: 2px solid rgb(0, 0, 0);
     border-collapse: collapse;
@@ -67,14 +83,15 @@ table th {
     background-color: rgb(31, 172, 50);
 }
 
-.tr-artist:hover, .musics:hover {
+.tr-artist:hover,
+.musics:hover {
     background-color: rgb(0, 0, 0);
     cursor: pointer;
     color: white;
 }
 
 form {
-    min-width: 360px;
+    min-width: 400px;
     border: none;
     padding: 15px;
     background-color: inherit;
@@ -82,7 +99,9 @@ form {
     font-weight: 500;
 }
 
-form p, .buttons, .links{
+form p,
+.buttons,
+.links {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -91,7 +110,9 @@ form p, .buttons, .links{
     margin: 20px 0;
 }
 
-form p select, form p input[type='text'], form p input[type="number"] {
+form p select,
+form p input[type='text'],
+form p input[type="number"] {
     padding: 8px 15px;
     outline: none;
     border: none;
@@ -101,15 +122,19 @@ form p select, form p input[type='text'], form p input[type="number"] {
     font-size: 17px;
 }
 
-form p.checkbox, form p.checkbox > *{
+form p.checkbox,
+form p.checkbox>* {
     cursor: pointer;
 }
 
 fieldset {
     border: 1px solid #000;
+    box-sizing: content-box;
+    padding: 3%;
 }
 
-.btnSubmit, .btnDelete {
+.btnSubmit,
+.btnDelete {
     cursor: pointer;
     min-width: 45%;
     background-color: rgb(71, 77, 155);
@@ -126,7 +151,8 @@ fieldset {
     background-color: rgb(131, 27, 27);
 }
 
-.buttons, .links {
+.buttons,
+.links {
     justify-content: space-around;
 }
 
@@ -136,40 +162,24 @@ a {
     text-decoration: none;
 }
 
-.cabecalho{
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    align-items: center;
-    flex-wrap: wrap;
-    min-width: 250px;
-    text-align: left;
-    padding: 0;
-    margin: 15px 0;
+#url_new_song {
+    margin-bottom: 30px;
 }
 
-.title {
-    min-width: 250px;
-    text-align: right;
-    font-weight: 300;
-    font-size: 20px;
-}
-
-.cabecalho li{
-    list-style-type: none;
-}
-
-@media  (max-width: 400px){
+@media (max-width: 400px) {
     table {
         min-width: 150px;
     }
-    
+
     table caption {
         margin: 10px 0;
         font-weight: 700;
     }
-    
-    table, th, td, tr {
+
+    table,
+    th,
+    td,
+    tr {
         width: auto;
         border: 2px solid rgb(0, 0, 0);
         border-collapse: collapse;

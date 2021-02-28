@@ -1,16 +1,25 @@
 class Music {
     constructor() {
-        this.eventos();
+        this.events();
     }
 
-    eventos() {
-        document.querySelectorAll('.musics').forEach(el => {
+    events() {
+        let musicas = document.querySelectorAll('.musics');
 
-            el.addEventListener('click', () => {
-                window.location.href = `http://127.0.0.1:8000/update/${el.dataset.id}`;
+        console.log(musicas.length);
+        if (musicas.length > 0) {
+
+            musicas.forEach(el => {
+
+                el.addEventListener('click', () => {
+                    window.location.href = `http://127.0.0.1:8000/update/${el.dataset.id}`;
+                });
+
             });
-
-        });
+        } else {
+            document.querySelector('.container').innerHTML =
+                `<span>Este artista não possui músicas registradas</span>`;
+        }
 
         document.querySelectorAll('.publicado').forEach(el => {
 
@@ -24,28 +33,28 @@ class Music {
 
         document.querySelectorAll('.minutes').forEach(el => {
 
-            let seconds = el.innerHTML;
+            let seconds = parseInt(el.innerHTML);
             el.innerHTML = this.formatTime(seconds);
 
         });
     }
 
-    formatTime(time, with_seg = true){
-    
-        var hours = Math.floor( time / 3600 );
-        var minutes = Math.floor( (time % 3600) / 60 );
+    formatTime(time) {
+
+        var hours = Math.floor(time / 3600);
+        var minutes = Math.floor((time % 3600) / 60);
         var seconds = time % 60;
-          
-        minutes = minutes < 10 ? '0' + minutes : minutes;      
+
+        minutes = minutes < 10 ? '0' + minutes : minutes;
         seconds = seconds < 10 ? '0' + seconds : seconds;
         hours = hours < 10 ? '0' + hours : hours;
 
-        if( parseInt(hours) > 0){
-            return  hours + ":" + minutes + ":" + seconds;
+        if (parseInt(hours) > 0) {
+            return hours + ":" + minutes + ":" + seconds;
         }
-          
-        return  minutes + ":" + seconds;
-             
+
+        return minutes + ":" + seconds;
+
     }
 }
 

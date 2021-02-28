@@ -13,26 +13,28 @@
 
 <body>
 
-    <header>
+    <div class="barra">
+        <div>
+            <span>Controle de Músicas</span>
+        </div>
         <ul class="cabecalho">
-            <li><a href=" {% url 'url_home' %} ">Home</a></li>
-            <li><a href=" {% url 'url_new_song' %} ">Nova música</a></li>
+            <li id="url_home">Home</li>
+            <li id="url_new_song">Nova música</li>
+            {% for artist in artists %}
+            <li class="artist" data-id="{{ artist.id }}"> {{ artist.name }} </li>
+            {% endfor %}
         </ul>
-        <span class="title"> <!-- {% block title %} {% endblock title %} --> </span class="">
-    </header>
 
+    </div>
 
     <main class="container">
-
         {% block conteudo %}
 
         {% endblock conteudo %}
-
     </main>
 
-    {% block script %}
-
-    {% endblock script %}
+    <script src=" {% static 'javascript/base.js' %}"></script>
+    {% block script %}{% endblock script %}
 
 </body>
 

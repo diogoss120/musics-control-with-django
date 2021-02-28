@@ -5,7 +5,7 @@ class Artist(models.Model):
     name = models.CharField(max_length=30)
     date_joined = models.DateTimeField()
 
-    def get_songs(self):
+    def get_songs(self) -> dict:
         conexao = sqlite3.connect('./db.sqlite3')
         cursor = conexao.cursor()
         cursor.execute("select * from musics_song where artist_id = "+str(self.id)+";")
@@ -23,7 +23,7 @@ class Artist(models.Model):
 
         return musics
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.name
 
     class Meta:
@@ -37,7 +37,7 @@ class Song(models.Model):
     youtube_published = models.BooleanField()
     artist = models.ForeignKey(Artist, on_delete=models.CASCADE)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.title
 
     class Meta:

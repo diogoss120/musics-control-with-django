@@ -1,15 +1,14 @@
 from django.contrib import admin
 from .models import Song, Artist
 import sqlite3
-from openpyxl import load_workbook
-from openpyxl import Workbook
+from openpyxl import load_workbook, Workbook
 from django.http import HttpResponse
 import datetime
 
 
 class ArtistAdmin(admin.ModelAdmin):
 
-    def export_musics_from_artist(self, request, queryset):
+    def export_musics_from_artist(self, request, queryset) -> HttpResponse:
 
         response = HttpResponse(content_type='application/vnd.ms-excel')
         response['Content-Disposition'] = 'attachment; filename=artist_music.xlsx'
@@ -29,7 +28,7 @@ class ArtistAdmin(admin.ModelAdmin):
           
             #setando os cabeçalhos
             sheet['B2'] = "TITLE"
-            sheet['C2'] = "DURATION"
+            sheet['C2'] = "DURATION/MINUTES"
             sheet['D2'] = "NO SPOTIFY"
             sheet['E2'] = "NO YOUTUBE"
 

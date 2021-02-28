@@ -5,47 +5,66 @@ class Form {
         this.form = document.querySelector('form');
         this.validacaoForm();
         this.eventosCheckbox();
+        this.ajustes();
     }
 
     validacaoForm() {
+        let msgSuccess = 'Música adicionada com sucesso!';
 
         if (this.btnDelete) {
 
-            this.btnDelete.addEventListener('click', e => {
+            msgSuccess = 'Música alterada com sucesso!';
+            this.btnDelete.addEventListener('click', event => {
                 let id = this.form.dataset.idmusic;
                 window.location.href = `http://127.0.0.1:8000/delete/${id}`;
                 alert('Música apagada com sucesso!');
             });
 
-            this.btnSubmit.addEventListener('click', e => {
-
-                if (this.formValido()) {
-                    alert('Música alterada com sucesso!');
-                } else {
-                    e.preventDefault()
-                }
-            });
-
-        } else {
-            this.btnSubmit.addEventListener('click', e => {
-                alert('Música adicionada com sucesso!');
-            });
         }
+
+        this.btnSubmit.addEventListener('click', event => {
+
+            if (this.formValido(event)) {
+                alert(msgSuccess);
+            }
+
+        });
+
     }
 
-    formValido() {
+    ajustes(){
+        document.querySelector('label[for="id_duration"]').innerHTML = `Duration/Seconds`;
+    }
+
+    formValido(event) {
         let formValido = true;
-        this.form.querySelectorAll('input[type="text"], input[type="number"], select').forEach(el => {
+
+        this.form.querySelectorAll('input[type="text"]').forEach(el => {
 
             if (el.value == '') {
                 formValido = false;
             }
 
-            if (el.type == 'number' && parseInt(el.value) < 60) {
+        });
+
+        this.form.querySelectorAll('input[type="number"]').forEach(el => {
+            if (parseInt(el.value) < 60) {
+                event.preventDefault()
                 formValido = false;
-                alert('Não existe uma música com esse tempo de duração')
+                alert('Música com tempo de duração muito curto\nTem que ter acima de 1 minuto')
+            } else if (el.value == '') {
+                formValido = false;
             }
         });
+
+        this.form.querySelectorAll('select').forEach(el => {
+
+            if (el.value == '') {
+                formValido = false;
+            }
+
+        });
+
         return formValido;
     }
 
