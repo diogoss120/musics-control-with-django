@@ -1,29 +1,34 @@
-## Musics control with django
+<h1 align="center">Musics control with django</h1>
 
-###### 1 - Para rodar esse projeto:
+<p>
+O objetivo desse projeto é desenvolver um CRUD de músicas no front-end utilizando a abordagem de
+templates do Django e sem nenhum framework front-end, fazendo uso de html, css e javascript puros.
+Os artistas são cadastrados através do admin do Django,onde também foi desenvolvida 
+uma ação para exportar todas as canções de um ou mais artistas em formato de planilha.
+</p>
+
+## Pré-requisitos:
+
+###### 1 - Ter o python instalado:
 - É necessário ter o python instalado
 - Se ele não estiver instalado baixe e instale pelo site oficial: https://www.python.org/downloads/
 
-###### 2 - Faça o clone ou download desse repositório em sua máquina:
+###### 2 - Faça o clone desse repositório em sua máquina:
 - Usando o git bash, escolha um diretório de sua preferencia e execute os comandos:
 - git clone https://github.com/diogoss120/musics-control-with-django.git
 
-###### 3 - Criar o ambiente virtual para instalar o django:
--  Navegue até a pasta onde foi feito o clone desse repositório
--  cd musics-control-with-django/
-
-###### 4 - Crie o ambiente virtual: 
-- Quando estiver dentro do diretório do projeto, execute os comandos:
+###### 3 - Crie o ambiente virtual:
+- Navegue até a pasta onde foi feito o clone desse repositório
+- cd musics-control-with-django/
 - python -m venv venv
 
-###### 5 - Ative o ambiente virtual: 
+###### 4 - Ative o ambiente virtual: 
 - source venv/Scripts/activate
 
-###### 6 - Instale o framework django e o pacote openpyxl: 
-- pip install django
-- pip install openpyxl
+###### 5 - Faça a instalação dos pacotes necessários: 
+- pip install -r requirements.txt
 
-###### 7 - Inicie o servidor: 
+###### 6 - Inicie o servidor: 
 - python manage.py runserver
 - Acesse a url http://127.0.0.1:8000/ no seu navegador
 
@@ -40,3 +45,14 @@
 #### Exportar músicas para um arquivo excel:
 - Acesse a url http://127.0.0.1:8000/admin/musics/artist/ ou navegue pelo admin até ela
 - Selecione os artistas desejados, selecione a Action: Export musics from artist e clique em GO
+
+
+## 🛠 Tecnologias
+
+As seguintes ferramentas foram usadas na construção do projeto:
+
+- [Python](https://www.python.org/)
+- [Django] (https://www.djangoproject.com/)
+- [JavaScript](https://www.javascript.com/)
+- [Html] (https://developer.mozilla.org/pt-BR/docs/Web/HTML)
+- [CSS] (https://developer.mozilla.org/pt-BR/docs/Web/CSS)
