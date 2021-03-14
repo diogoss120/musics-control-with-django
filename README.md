@@ -1,13 +1,12 @@
 <h1 align="center">Musics control with django</h1>
 
 <p>
-O objetivo desse projeto é desenvolver um CRUD de músicas no front-end utilizando a abordagem de
-templates do Django e sem nenhum framework front-end, fazendo uso de html, css e javascript puros.
-Os artistas são cadastrados através do admin do Django,onde também foi desenvolvida 
-uma ação para exportar todas as canções de um ou mais artistas em formato de planilha.
+O objetivo desse projeto é desenvolver um CRUD de músicas no front-end utilizando a abordagem de templates do Django e sem nenhum framework front-end, fazendo uso de html, css e javascript puros.
+Os artistas são cadastrados através do admin do Django, onde também foi desenvolvida uma ação para exportar todas as canções de um ou mais artistas em formato de planilha.
 </p>
 
-## Pré-requisitos:
+
+## Pré-requisitos
 
 ###### 1 - Ter o python instalado:
 - É necessário ter o python instalado
@@ -48,11 +47,10 @@ uma ação para exportar todas as canções de um ou mais artistas em formato de
 
 
 ## 🛠 Tecnologias
-
 As seguintes ferramentas foram usadas na construção do projeto:
 
 - [Python](https://www.python.org/)
-- [Django] (https://www.djangoproject.com/)
+- [Django](https://www.djangoproject.com/)
 - [JavaScript](https://www.javascript.com/)
-- [Html] (https://developer.mozilla.org/pt-BR/docs/Web/HTML)
-- [CSS] (https://developer.mozilla.org/pt-BR/docs/Web/CSS)
+- [Html](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
+- [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
