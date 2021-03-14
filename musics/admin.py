@@ -10,9 +10,11 @@ class ArtistAdmin(admin.ModelAdmin):
 
     def export_musics_from_artist(self, request, queryset) -> HttpResponse:
 
+        # definindo configurações do arquivo a ser enviado 
         response = HttpResponse(content_type='application/vnd.ms-excel')
         response['Content-Disposition'] = 'attachment; filename=artist_music.xlsx'
 
+        # definindo arquivo .xlsx
         wb = Workbook()
         sheet = wb.active
 
@@ -33,6 +35,7 @@ class ArtistAdmin(admin.ModelAdmin):
             sheet['E2'] = "NO YOUTUBE"
 
             row = 3
+            # adicionando músicas do banco na planilha
             for music in musics:
                 song = musics[music]
 
